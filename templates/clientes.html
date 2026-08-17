@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block title %}Clientes | CSi{% endblock %}
+
+{% block content %}
+<section class="seccion">
+<div class="container">
+<h2 class="mb-2">Módulo de Clientes</h2>
+<p class="text-light mb-4">Clientes atendidos por CSi. Datos de ejemplo, sin conexión a base de datos aún.</p>
+
+<div class="row">
+{% for cliente in clientes %}
+<div class="col-md-4 mb-4">
+<div class="card h-100 shadow">
+<div class="card-body text-dark">
+<h5 class="card-title">{{ cliente.nombre }}</h5>
+<h6 class="card-subtitle mb-2 text-muted">{{ cliente.empresa }}</h6>
+<p class="card-text mb-1">📧 {{ cliente.correo }}</p>
+<p class="card-text">📞 {{ cliente.telefono }}</p>
+</div>
+</div>
+</div>
+{% else %}
+<div class="col-12">
+<p class="text-center text-light">No hay clientes registrados por el momento.</p>
+</div>
+{% endfor %}
+</div>
+
+</div>
+</section>
+{% endblock %}
